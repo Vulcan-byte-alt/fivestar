@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacancies & Criteria - Five Star World Agency Network</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: 'Satoshi';
+            src: url('fonts/Satoshi-Variable.ttf') format('ttf');
+            font-weight: 100 900;
+            font-style: normal;
+            font-display: block;
+        }
+
+        :root {
+            --primary: #3B82F6;
+            --primary-dark: #1D4ED8;
+            --primary-glow: rgba(59, 130, 246, 0.5);
+            --secondary: #F43F5E;
+            --accent: #06B6D4;
+            --dark: #0F172A;
+            --darker: #030712;
+            --light: #F8FAFC;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-400: #9CA3AF;
+            --gray-500: #6B7280;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-800: #1F2937;
+            --gray-900: #111827;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(3, 7, 18, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 1rem 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 200px;
+            height: 42px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-item {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--gray-300);
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-item:hover {
+            color: white;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 0.5s;
+            border-radius: 2px;
+            opacity: 0;
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
+            opacity: 1;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.75rem;
+            border-radius: 50px;
+            transition: all 0.4s;
+            box-shadow: 0 10px 25px -5px var(--primary-glow);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px -5px var(--primary-glow);
+        }
+
+        /* Hero Section - Full Width */
+        .page-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(3, 7, 18, 0.6), rgba(15, 23, 42, 0.6)), url('images/vacancies/hero-vacancies.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 80% 70%, rgba(6, 182, 212, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 50% 50%, rgba(244, 63, 94, 0.05) 0%, transparent 70%);
+            animation: pulseGlow 8s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            padding: 0 2rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            background: linear-gradient(to right, #fff 20%, var(--accent) 80%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.08em;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: #ffffff;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Content Section */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section.light {
+            background-color: var(--light);
+            color: var(--dark);
+        }
+
+        .section.dark {
+            background-color: var(--darker);
+            color: var(--light);
+            position: relative;
+        }
+
+        .section.dark::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(6, 182, 212, 0.05) 0%, transparent 40%);
+            z-index: 0;
+        }
+
+        .section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section.dark .section-label {
+            color: var(--accent);
+        }
+
+        .section.light .section-label {
+            color: var(--primary);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        /* Dark section titles */
+        .section.dark .section-title {
+            background: linear-gradient(135deg,
+                    #ffffff 0%,
+                    rgba(59, 130, 246, 0.9) 30%,
+                    rgba(244, 63, 94, 0.8) 60%,
+                    rgba(6, 182, 212, 0.9) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+
+        .section.dark .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg,
+                    var(--primary) 0%,
+                    var(--secondary) 50%,
+                    var(--accent) 100%);
+            border-radius: 2px;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Light section titles */
+        .section.light .section-title {
+            color: #1e293b;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .section.light .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg,
+                    var(--primary) 0%,
+                    var(--secondary) 50%,
+                    var(--accent) 100%);
+            border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--gray-400);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .section.dark .section-description {
+            color: var(--gray-400);
+        }
+
+        .section.light .section-description {
+            color: var(--gray-600);
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .section.light .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+        }
+
+        .section.light .glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 20px 40px rgba(31, 38, 135, 0.2);
+            background: rgba(255, 255, 255, 0.85);
+        }
+
+        .glass-card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #fff, var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section.light .glass-card h3 {
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .glass-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .glass-card li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--gray-300);
+        }
+
+        .section.light .glass-card li {
+            color: var(--gray-700);
+        }
+
+        .glass-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Country Grid */
+        .country-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .country-region {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .country-region:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.4);
+            background: rgba(59, 130, 246, 0.1);
+            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.2);
+        }
+
+        .region-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .region-title i {
+            font-size: 1rem;
+        }
+
+        .country-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .country-list li {
+            padding: 0.5rem 0;
+            color: var(--gray-400);
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .country-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.1));
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray-400);
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(3, 7, 18, 0.95);
+            padding: 3rem 0 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            text-align: center;
+            color: var(--gray-500);
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .country-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <img src="images/common/logo.png" alt="Five Star Logo" class="logo-img">
+                </a>
+                <nav class="nav">
+                    <a href="group-home.html" class="nav-item">GROUP HOME</a>
+                    <a href="about.html" class="nav-item">ABOUT</a>
+                    <a href="vacancies.html" class="nav-item">VACANCIES</a>
+                    <a href="faq.html" class="nav-item">FAQS</a>
+                    <a href="specialist-groups.html" class="nav-item">SPECIALIST GROUPS</a>
+                    <a href="meetings.html" class="nav-item">MEETINGS</a>
+                    <a href="index.html#contact" class="nav-item">CONTACT</a>
+                </nav>
+                <a href="#" class="cta-button">Join Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="section-badge">Membership Opportunities</div>
+                <h1 class="page-title">Vacancies & Criteria</h1>
+                <p class="page-subtitle">Check if your country has a vacancy and become a part of our global logistics family today.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Criteria Section -->
+    <section class="section light">
+        <div class="container">
+            <div class="section-label">MEMBERSHIP CRITERIA</div>
+            <h2 class="section-title">Five Star Freight Systems World Agency Network (FSFSWAN)</h2>
+            <p class="section-description">Criteria Overview</p>
+
+            <div class="glass-card">
+                <h3><i class="fas fa-star"></i> Sole Agency Network Accreditation</h3>
+                <ul>
+                    <li>The FSFSWAN primarily operates a sole agency network policy for its members under the Five Star and PFI Networks</li>
+                    <li>For the GSFN, an open network model applies. Sole agency rights do not extend to GSFN except under exceptional and previously agreed circumstances</li>
+                </ul>
+            </div>
+
+            <div class="glass-card">
+                <h3><i class="fas fa-exchange-alt"></i> Membership Internal Flexibility</h3>
+                <ul>
+                    <li>FSFSWAN members may apply to join one of the network's internal sister networks</li>
+                    <li>For instance, a PFI agent can seek membership in GSFN or Five Star</li>
+                </ul>
+            </div>
+
+            <div class="glass-card">
+                <h3><i class="fas fa-shield-alt"></i> Sole Agency Rights</h3>
+                <ul>
+                    <li>Upon successful application, FSFSWAN grants sole agency over the applicant's home territory, provided it is available</li>
+                    <li>Members may also book and pay for any available adjoining territory (if available)</li>
+                </ul>
+            </div>
+
+            <div class="glass-card">
+                <h3><i class="fas fa-check-circle"></i> Compliance Requirements</h3>
+                <ul>
+                    <li>Adherence to network rules and regulations is mandatory. Key obligations include:</li>
+                    <li>Regular attendance of our annual network meeting</li>
+                    <li>Reciprocal business cooperation with network partners</li>
+                    <li>Non-compliance can result in the loss of sole agency rights. In such cases, a second (dual) agent will be introduced for that country</li>
+                </ul>
+            </div>
+
+            <div class="glass-card">
+                <h3><i class="fas fa-user-check"></i> Member Qualifications</h3>
+                <ul>
+                    <li>Applicants must demonstrate capability across all standard forwarding modes (air, sea, road), both inbound and outbound of their country</li>
+                    <li>Carry Professional Insurance coverage</li>
+                    <li>Demonstrate a minimum of four years in business operations</li>
+                    <li>Have no listing(s) as a delinquent debtor on any recognized industry blacklist websites</li>
+                </ul>
+            </div>
+
+            <div class="glass-card">
+                <h3><i class="fas fa-info-circle"></i> Additional Information</h3>
+                <ul>
+                    <li>Current available territories are shown below. If your home country is listed, please feel free to apply now</li>
+                    <li>Any applicant we cannot offer an immediate placement for will be placed on a wait list within our reserve agents bank for future vacancies</li>
+                    <li>Annual membership fees and further information are provided upon application; contact us directly for details</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vacant Countries Section -->
+    <section class="section dark">
+        <div class="container">
+            <div class="section-label">OPPORTUNITIES</div>
+            <h2 class="section-title">Vacant Countries</h2>
+            <p class="section-description">The following countries below are vacant across the Five Star World Agency Network, and we welcome application enquiries from any freight forwarding company based within them.</p>
+
+            <div class="country-grid">
+                <!-- Africa -->
+                <div class="country-region">
+                    <h3 class="region-title"><i class="fas fa-globe-africa"></i> Africa</h3>
+                    <ul class="country-list">
+                        <li>Angola</li>
+                        <li>Benin</li>
+                        <li>Burkina Faso</li>
+                        <li>Cameroon</li>
+                        <li>Central African Republic</li>
+                        <li>Congo</li>
+                        <li>Chad</li>
+                        <li>Democratic Republic of Congo</li>
+                        <li>Eritrea</li>
+                        <li>Ethiopia</li>
+                        <li>Equatorial Guinea</li>
+                        <li>Gabon</li>
+                        <li>Gambia</li>
+                        <li>Guinea</li>
+                        <li>Guinea Bissau</li>
+                        <li>Lesotho</li>
+                        <li>Liberia</li>
+                        <li>Libya</li>
+                        <li>Niger</li>
+                        <li>Rwanda</li>
+                        <li>Somalia</li>
+                        <li>Sudan</li>
+                        <li>South Sudan</li>
+                        <li>Togo</li>
+                    </ul>
+                </div>
+
+                <!-- Americas -->
+                <div class="country-region">
+                    <h3 class="region-title"><i class="fas fa-globe-americas"></i> Americas</h3>
+                    <ul class="country-list">
+                        <li>Belize</li>
+                        <li>Costa Rica</li>
+                        <li>El Salvador</li>
+                        <li>Guatemala</li>
+                        <li>Peru</li>
+                        <li>Uruguay</li>
+                        <li>USA</li>
+                        <li>Caribbean Islands (except Dominic Republic & Haiti)</li>
+                    </ul>
+                </div>
+
+                <!-- Europe -->
+                <div class="country-region">
+                    <h3 class="region-title"><i class="fas fa-globe-europe"></i> Europe</h3>
+                    <ul class="country-list">
+                        <li>Albania</li>
+                        <li>Belarus</li>
+                        <li>Belgium</li>
+                        <li>Estonia</li>
+                        <li>France</li>
+                        <li>Germany</li>
+                        <li>Hungary</li>
+                        <li>Iceland</li>
+                        <li>Ireland</li>
+                        <li>Malta</li>
+                        <li>Spain</li>
+                        <li>Switzerland</li>
+                        <li>Sweden</li>
+                    </ul>
+                </div>
+
+                <!-- Asia -->
+                <div class="country-region">
+                    <h3 class="region-title"><i class="fas fa-globe-asia"></i> Asia</h3>
+                    <ul class="country-list">
+                        <li>Afghanistan</li>
+                        <li>Bangladesh</li>
+                        <li>Iraq</li>
+                        <li>Iran</li>
+                        <li>Kuwait</li>
+                        <li>Japan</li>
+                        <li>Myanmar</li>
+                        <li>Pakistan</li>
+                        <li>Papua New Guinea (PNG)</li>
+                        <li>Saudi Arabia</li>
+                        <li>Syria</li>
+                        <li>Tajikistan</li>
+                        <li>Thailand</li>
+                        <li>Turkmenistan</li>
+                        <li>Yemen</li>
+                    </ul>
+                </div>
+
+                <!-- Oceania -->
+                <div class="country-region">
+                    <h3 class="region-title"><i class="fas fa-water"></i> Oceania</h3>
+                    <ul class="country-list">
+                        <li>Any Pacific Islands (except Fiji, Guam & North Mariana Islands)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Ready to Join Our Global Network?</h2>
+            <p class="cta-subtitle">If your country is listed above, contact us to start your membership application today.</p>
+            <a href="index.html#contact" class="cta-button" style="display: inline-block;">Contact Us Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Five Star World Agency Network. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

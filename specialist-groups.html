@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specialist Networks - Five Star World Agency Network</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: 'Satoshi';
+            src: url('fonts/Satoshi-Variable.ttf') format('ttf');
+            font-weight: 100 900;
+            font-style: normal;
+            font-display: block;
+        }
+
+        :root {
+            --primary: #3B82F6;
+            --primary-dark: #1D4ED8;
+            --primary-glow: rgba(59, 130, 246, 0.5);
+            --secondary: #F43F5E;
+            --accent: #06B6D4;
+            --dark: #0F172A;
+            --darker: #030712;
+            --light: #F8FAFC;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-400: #9CA3AF;
+            --gray-500: #6B7280;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-800: #1F2937;
+            --gray-900: #111827;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(3, 7, 18, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 1rem 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 200px;
+            height: 42px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-item {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--gray-300);
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-item:hover {
+            color: white;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 0.5s;
+            border-radius: 2px;
+            opacity: 0;
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
+            opacity: 1;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.75rem;
+            border-radius: 50px;
+            transition: all 0.4s;
+            box-shadow: 0 10px 25px -5px var(--primary-glow);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px -5px var(--primary-glow);
+        }
+
+        /* Hero Section - Full Width */
+        .page-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(3, 7, 18, 0.6), rgba(15, 23, 42, 0.6)), url('images/specialist-groups/hero-specialist.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 80% 70%, rgba(6, 182, 212, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 50% 50%, rgba(244, 63, 94, 0.05) 0%, transparent 70%);
+            animation: pulseGlow 8s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            padding: 0 2rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.08em;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: #ffffff;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Content Section */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section.light {
+            background-color: var(--light);
+            color: var(--dark);
+        }
+
+        .section.dark {
+            background-color: var(--darker);
+            color: var(--light);
+            position: relative;
+        }
+
+        .section.dark::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(6, 182, 212, 0.05) 0%, transparent 40%);
+            z-index: 0;
+        }
+
+        .section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Specialist Groups Grid */
+        .specialist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .specialist-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            min-height: 320px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .specialist-card.hidden {
+            display: none;
+        }
+
+        /* Background images for cards - cycling through available images */
+        .specialist-card:nth-child(1) { background-image: url('images/home/img1.png'); }
+        .specialist-card:nth-child(2) { background-image: url('images/home/img2.png'); }
+        .specialist-card:nth-child(3) { background-image: url('images/home/img3.png'); }
+        .specialist-card:nth-child(4) { background-image: url('images/home/img4.png'); }
+        .specialist-card:nth-child(5) { background-image: url('images/home/img5.png'); }
+        .specialist-card:nth-child(6) { background-image: url('images/home/img6.png'); }
+        .specialist-card:nth-child(7) { background-image: url('images/home/img7.png'); }
+        .specialist-card:nth-child(8) { background-image: url('images/home/img8.png'); }
+        .specialist-card:nth-child(9) { background-image: url('images/home/img9.png'); }
+        .specialist-card:nth-child(10) { background-image: url('images/home/img10.png'); }
+        .specialist-card:nth-child(11) { background-image: url('images/home/img11.png'); }
+        .specialist-card:nth-child(12) { background-image: url('images/home/img12.png'); }
+        .specialist-card:nth-child(13) { background-image: url('images/home/img13.png'); }
+        .specialist-card:nth-child(14) { background-image: url('images/home/img14.png'); }
+        .specialist-card:nth-child(15) { background-image: url('images/home/img15.png'); }
+        .specialist-card:nth-child(16) { background-image: url('images/home/img16.png'); }
+        .specialist-card:nth-child(17) { background-image: url('images/home/img1.png'); }
+        .specialist-card:nth-child(18) { background-image: url('images/home/img2.png'); }
+        .specialist-card:nth-child(19) { background-image: url('images/home/img3.png'); }
+
+        .specialist-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom,
+                    rgba(0, 0, 0, 0.3) 0%,
+                    rgba(0, 0, 0, 0.5) 50%,
+                    rgba(0, 0, 0, 0.8) 100%);
+            z-index: 1;
+            transition: all 0.5s;
+        }
+
+        .specialist-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+            opacity: 0;
+            transition: all 0.5s ease;
+            z-index: 0;
+            transform: translate(50%, 50%);
+        }
+
+        .specialist-card:hover {
+            transform: translateY(-12px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .specialist-card:hover::before {
+            background: linear-gradient(to bottom,
+                    rgba(0, 0, 0, 0.2) 0%,
+                    rgba(0, 0, 0, 0.4) 50%,
+                    rgba(0, 0, 0, 0.7) 100%);
+        }
+
+        .specialist-card:hover::after {
+            opacity: 0.8;
+            transform: translate(30%, 30%);
+        }
+
+        .specialist-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(6, 182, 212, 0.3));
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: all 0.4s;
+            position: relative;
+            z-index: 2;
+            backdrop-filter: blur(10px);
+        }
+
+        .specialist-card:hover .specialist-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(6, 182, 212, 0.4));
+            border-color: rgba(59, 130, 246, 0.6);
+        }
+
+        .specialist-icon i {
+            font-size: 1.75rem;
+            color: #60A5FA;
+        }
+
+        .specialist-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+            position: relative;
+            z-index: 2;
+            font-weight: 600;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .specialist-description {
+            color: rgba(226, 232, 240, 0.9);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.05));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .info-box p {
+            font-size: 1.1rem;
+            color: var(--gray-300);
+            line-height: 1.8;
+        }
+
+        /* Show More Button */
+        .show-more-container {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .show-more-btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .show-more-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+        }
+
+        .show-more-btn i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .show-more-btn.expanded i {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(3, 7, 18, 0.95);
+            padding: 3rem 0 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            text-align: center;
+            color: var(--gray-500);
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .specialist-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <img src="images/common/logo.png" alt="Five Star Logo" class="logo-img">
+                </a>
+                <nav class="nav">
+                    <a href="group-home.html" class="nav-item">GROUP HOME</a>
+                    <a href="about.html" class="nav-item">ABOUT</a>
+                    <a href="vacancies.html" class="nav-item">VACANCIES</a>
+                    <a href="faq.html" class="nav-item">FAQS</a>
+                    <a href="specialist-groups.html" class="nav-item">SPECIALIST GROUPS</a>
+                    <a href="meetings.html" class="nav-item">MEETINGS</a>
+                    <a href="index.html#contact" class="nav-item">CONTACT</a>
+                </nav>
+                <a href="#" class="cta-button">Join Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="section-badge">Specialized Expertise</div>
+                <h1 class="page-title">FSFSWAN Specialist Networks</h1>
+                <p class="page-subtitle">To foster increased cross-network business opportunities within our global ecosystem, we have established specialized mini groups where our forwarders with expertise in specific sectors collaborate to deliver comprehensive, end-to-end professional services tailored to their clients' requirements.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="section dark">
+        <div class="container">
+            <div class="info-box">
+                <p><strong>All specialist networks are free to join for FSFSWAN Members.</strong> Upon successful admission to the group, new members can apply to join any specialist network that is applicable to them at no extra cost.</p>
+            </div>
+
+            <div class="specialist-grid">
+                <!-- AOG & Aerospace -->
+                <div class="specialist-card">
+                    <div class="specialist-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3 class="specialist-title">AOG & Aerospace</h3>
+                    <p class="specialist-description">Aircraft on Ground and aerospace logistics specialists providing urgent solutions for grounded aircraft and critical aerospace components worldwide.</p>
+                </div>
+
+                <!-- Breakbulk -->
+                <div class="specialist-card">
+                    <div class="specialist-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <h3 class="specialist-title">Breakbulk</h3>
+                    <p class="specialist-description">Experts in handling oversized and heavy cargo that cannot fit into standard containers, requiring specialized loading and transport solutions.</p>
+                </div>
+
+                <!-- Dangerous Goods -->
+                <div class="specialist-card">
+                    <div class="specialist-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3 class="specialist-title">Dangerous Goods</h3>
+                    <p class="specialist-description">Certified professionals in handling hazardous materials and dangerous goods with full compliance to international safety regulations.</p>
+                </div>
+
+                <!-- Defence & Military -->
+                <div class="specialist-card">
+                    <div class="specialist-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="specialist-title">Defence & Military</h3>
+                    <p class="specialist-description">Specialized military logistics and defence sector transportation services with security clearances and specialized handling capabilities.</p>
+                </div>
+
+                <!-- Diplomatic Cargo -->
+                <div class="specialist-card">
+                    <div class="specialist-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3 class="specialist-title">Diplomatic Cargo</h3>
+                    <p class="specialist-description">Secure and confidential handling of diplomatic pouches, embassy relocations, and government-related shipments.</p>
+                </div>
+
+                <!-- Equine, Livestock & Exotic Animals -->
+                <div class="specialist-card">
+                    <div class="specialist-icon">
+                        <i class="fas fa-horse"></i>
+                    </div>
+                    <h3 class="specialist-title">Equine, Livestock & Exotic Animals</h3>
+                    <p class="specialist-description">Live animal transport specialists ensuring safe, comfortable, and compliant transportation of all types of animals globally.</p>
+                </div>
+
+                <!-- FMC Registered Partners -->
+                <div class="specialist-card">
+                    <div class="specialist-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="specialist-title">FMC Registered Partners</h3>
+                    <p class="specialist-description">Federal Maritime Commission registered ocean transportation intermediaries for US trade compliance.</p>
+                </div>
+
+                <!-- Foodstuffs & Perishables -->
+                <div class="specialist-card">
+                    <div class="specialist-icon">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <h3 class="specialist-title">Foodstuffs & Perishables</h3>
+                    <p class="specialist-description">Temperature-controlled logistics for fresh produce, frozen goods, and time-sensitive perishable cargo worldwide.</p>
+                </div>
+
+                <!-- Human Remains -->
+                <div class="specialist-card">
+                    <div class="specialist-icon">
+                        <i class="fas fa-dove"></i>
+                    </div>
+                    <h3 class="specialist-title">Human Remains</h3>
+                    <p class="specialist-description">Dignified and respectful repatriation services handling human remains with care, compassion, and full regulatory compliance.</p>
+                </div>
+
+                <!-- Oil & Gas -->
+                <div class="specialist-card">
+                    <div class="specialist-icon">
+                        <i class="fas fa-oil-can"></i>
+                    </div>
+                    <h3 class="specialist-title">Oil & Gas</h3>
+                    <p class="specialist-description">Energy sector logistics specialists serving the oil, gas, and renewable energy industries with project cargo expertise.</p>
+                </div>
+
+                <!-- Over Dimensional & Heavy Cargo -->
+                <div class="specialist-card">
+                    <div class="specialist-icon">
+                        <i class="fas fa-truck-loading"></i>
+                    </div>
+                    <h3 class="specialist-title">Over Dimensional & Heavy Cargo</h3>
+                    <p class="specialist-description">Expertise in transporting oversized and heavy-lift cargo requiring specialized equipment and route planning.</p>
+                </div>
+
+                <!-- Pharmaceuticals -->
+                <div class="specialist-card">
+                    <div class="specialist-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <h3 class="specialist-title">Pharmaceuticals</h3>
+                    <p class="specialist-description">GDP-certified pharmaceutical logistics ensuring temperature-controlled, secure transportation of medicines and healthcare products.</p>
+                </div>
+
+                <!-- Project Cargo -->
+                <div class="specialist-card">
+                    <div class="specialist-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3 class="specialist-title">Project Cargo</h3>
+                    <p class="specialist-description">End-to-end project logistics management for large-scale industrial projects and complex multi-modal shipments.</p>
+                </div>
+
+                <!-- Relocations & Household Goods -->
+                <div class="specialist-card">
+                    <div class="specialist-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="specialist-title">Relocations & Household Goods</h3>
+                    <p class="specialist-description">Professional moving services for corporate relocations, diplomatic moves, and personal household goods worldwide.</p>
+                </div>
+
+                <!-- Shows, Events & Sports -->
+                <div class="specialist-card">
+                    <div class="specialist-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3 class="specialist-title">Shows, Events & Sports Movements</h3>
+                    <p class="specialist-description">Exhibition, trade show, and sporting event logistics with time-critical delivery and on-site support capabilities.</p>
+                </div>
+
+                <!-- Time Critical & Sensitive -->
+                <div class="specialist-card">
+                    <div class="specialist-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="specialist-title">Time Critical & Sensitive Movements</h3>
+                    <p class="specialist-description">Urgent shipment specialists providing hand-carry, charter, and next-flight-out services for emergency cargo.</p>
+                </div>
+
+                <!-- Transit Shipments -->
+                <div class="specialist-card">
+                    <div class="specialist-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3 class="specialist-title">Transit Shipments</h3>
+                    <p class="specialist-description">Cross-border transit expertise navigating complex customs procedures and multi-country routing efficiently.</p>
+                </div>
+
+                <!-- Wines, Spirits & Beverages -->
+                <div class="specialist-card">
+                    <div class="specialist-icon">
+                        <i class="fas fa-wine-glass-alt"></i>
+                    </div>
+                    <h3 class="specialist-title">Wines, Spirits & Beverages</h3>
+                    <p class="specialist-description">Specialized handling of alcoholic beverages with temperature control, licensing expertise, and duty management.</p>
+                </div>
+
+                <!-- Yachts, Marine Services & Vintage Vehicles -->
+                <div class="specialist-card">
+                    <div class="specialist-icon">
+                        <i class="fas fa-anchor"></i>
+                    </div>
+                    <h3 class="specialist-title">Yachts, Marine Services & Vintage Vehicles</h3>
+                    <p class="specialist-description">Luxury transport specialists for superyachts, classic cars, and high-value vintage vehicles with white-glove service.</p>
+                </div>
+            </div>
+
+            <!-- Show More Button -->
+            <div class="show-more-container">
+                <button id="showMoreNetworksBtn" class="show-more-btn">
+                    Show More Networks <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Five Star World Agency Network. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Specialist Networks Show More/Less functionality
+        const specialistCards = document.querySelectorAll('.specialist-card');
+        const showMoreBtn = document.getElementById('showMoreNetworksBtn');
+        let networksExpanded = false;
+
+        // Initially hide all cards after the 6th one
+        specialistCards.forEach((card, index) => {
+            if (index >= 6) {
+                card.classList.add('hidden');
+            }
+        });
+
+        if (showMoreBtn) {
+            showMoreBtn.addEventListener('click', () => {
+                networksExpanded = !networksExpanded;
+
+                specialistCards.forEach((card, index) => {
+                    if (index >= 6) {
+                        if (networksExpanded) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    }
+                });
+
+                // Update button text and icon
+                if (networksExpanded) {
+                    showMoreBtn.innerHTML = 'Show Less Networks <i class="fas fa-chevron-up"></i>';
+                    showMoreBtn.classList.add('expanded');
+                } else {
+                    showMoreBtn.innerHTML = 'Show More Networks <i class="fas fa-chevron-down"></i>';
+                    showMoreBtn.classList.remove('expanded');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

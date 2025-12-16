@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Five Star World Agency Network</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: 'Satoshi';
+            src: url('fonts/Satoshi-Variable.ttf') format('ttf');
+            font-weight: 100 900;
+            font-style: normal;
+            font-display: block;
+        }
+
+        :root {
+            --primary: #3B82F6;
+            --primary-dark: #1D4ED8;
+            --primary-glow: rgba(59, 130, 246, 0.5);
+            --secondary: #F43F5E;
+            --accent: #06B6D4;
+            --dark: #0F172A;
+            --darker: #030712;
+            --light: #F8FAFC;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-400: #9CA3AF;
+            --gray-500: #6B7280;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-800: #1F2937;
+            --gray-900: #111827;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(3, 7, 18, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 1rem 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 200px;
+            height: 42px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-item {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--gray-300);
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-item:hover {
+            color: white;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 0.5s;
+            border-radius: 2px;
+            opacity: 0;
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
+            opacity: 1;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.75rem;
+            border-radius: 50px;
+            transition: all 0.4s;
+            box-shadow: 0 10px 25px -5px var(--primary-glow);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px -5px var(--primary-glow);
+        }
+
+        /* Hero Section - Full Width */
+        .page-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(3, 7, 18, 0.6), rgba(15, 23, 42, 0.6)), url('images/about/hero-about.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 80% 70%, rgba(6, 182, 212, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 50% 50%, rgba(244, 63, 94, 0.05) 0%, transparent 70%);
+            animation: pulseGlow 8s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            padding: 0 2rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .page-title {
+            font-size: 4rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.08em;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: #ffffff;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Content Section */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section.light {
+            background-color: var(--light);
+            color: var(--dark);
+        }
+
+        .section.dark {
+            background-color: var(--darker);
+            color: var(--light);
+            position: relative;
+        }
+
+        .section.dark::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(6, 182, 212, 0.05) 0%, transparent 40%);
+            z-index: 0;
+        }
+
+        .section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section.dark .section-label {
+            color: var(--accent);
+        }
+
+        .section.light .section-label {
+            color: var(--primary);
+        }
+
+        .section-title {
+            font-size: 2.75rem;
+            margin-bottom: 2rem;
+            position: relative;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .section.dark .section-title {
+            background: linear-gradient(135deg,
+                    #ffffff 0%,
+                    rgba(59, 130, 246, 0.9) 30%,
+                    rgba(244, 63, 94, 0.8) 60%,
+                    rgba(6, 182, 212, 0.9) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+        }
+
+        .section.dark .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg,
+                    var(--primary) 0%,
+                    var(--secondary) 50%,
+                    var(--accent) 100%);
+            border-radius: 2px;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .section.light .section-title {
+            color: #1e293b;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .section.light .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg,
+                    var(--primary) 0%,
+                    var(--secondary) 50%,
+                    var(--accent) 100%);
+            border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--gray-400);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .section.dark .section-description {
+            color: var(--gray-400);
+        }
+
+        .section.light .section-description {
+            color: var(--gray-600);
+        }
+
+        /* Mission/Vision Cards */
+        .mission-vision-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .mission-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .mission-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .mission-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .section.light .mission-card {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+        }
+
+        .section.light .mission-card:hover {
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 20px 40px rgba(31, 38, 135, 0.2);
+            background: rgba(255, 255, 255, 0.85);
+        }
+
+        .mission-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(6, 182, 212, 0.2));
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-icon i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .mission-title {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .section.light .mission-title {
+            color: #1e293b;
+        }
+
+        .mission-text {
+            color: var(--gray-400);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .section.light .mission-text {
+            color: var(--gray-700);
+        }
+
+        /* Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 1.25rem;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .value-title {
+            font-size: 1.25rem;
+            color: white;
+            margin-bottom: 0.75rem;
+        }
+
+        .value-description {
+            font-size: 0.95rem;
+            color: var(--gray-400);
+            line-height: 1.6;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 3rem auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            opacity: 0.3;
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 1.25rem;
+            padding: 2rem;
+            width: calc(50% - 2rem);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.02);
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-year {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-text {
+            color: var(--gray-400);
+            line-height: 1.7;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 4px solid var(--darker);
+            z-index: 1;
+        }
+
+        /* Leadership Section */
+        .leadership-card {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            max-width: 800px;
+            margin: 3rem auto;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .section.dark .leadership-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .leader-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            border: 4px solid rgba(59, 130, 246, 0.3);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(6, 182, 212, 0.2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .leader-image i {
+            font-size: 4rem;
+            color: var(--primary);
+        }
+
+        .leader-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .leader-name {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .section.light .leader-name {
+            color: #1e293b;
+            font-weight: 700;
+        }
+
+        .leader-title {
+            font-size: 1.25rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .section.light .leader-title {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .leader-bio {
+            color: var(--gray-400);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .section.light .leader-bio {
+            color: #475569;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(3, 7, 18, 0.95);
+            padding: 3rem 0 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            text-align: center;
+            color: var(--gray-500);
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .mission-vision-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-content {
+                width: calc(100% - 2rem);
+                margin-left: 2rem !important;
+            }
+
+            .timeline-marker {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <img src="images/common/logo.png" alt="Five Star Logo" class="logo-img">
+                </a>
+                <nav class="nav">
+                    <a href="group-home.html" class="nav-item">GROUP HOME</a>
+                    <a href="about.html" class="nav-item">ABOUT</a>
+                    <a href="vacancies.html" class="nav-item">VACANCIES</a>
+                    <a href="faq.html" class="nav-item">FAQS</a>
+                    <a href="specialist-groups.html" class="nav-item">SPECIALIST GROUPS</a>
+                    <a href="meetings.html" class="nav-item">MEETINGS</a>
+                    <a href="index.html#contact" class="nav-item">CONTACT</a>
+                </nav>
+                <a href="#" class="cta-button">Join Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="section-badge">Our Story</div>
+                <h1 class="page-title">About FSFSWAN</h1>
+                <p class="page-subtitle">For nearly three decades, the Five Star Freight Systems World Agency Network has connected freight forwarders across the globe, building a community rooted in trust, collaboration, and shared success. We are more than a network - we are a family of logistics professionals committed to excellence.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="section light">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">OUR PURPOSE</div>
+                <h2 class="section-title">Mission & Vision</h2>
+                <p class="section-description">Our purpose drives everything we do, shaping the future of global freight forwarding.</p>
+            </div>
+
+            <div class="mission-vision-grid">
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="mission-title">Our Mission</h3>
+                    <p class="mission-text">To empower independent freight forwarders worldwide with the resources, partnerships, and support needed to compete globally while maintaining their local expertise and entrepreneurial spirit. We facilitate seamless international logistics through trusted collaboration and mutual growth.</p>
+                </div>
+
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="mission-title">Our Vision</h3>
+                    <p class="mission-text">To be the world's most trusted and innovative freight forwarding network, where every member thrives through genuine partnerships, cutting-edge resources, and a shared commitment to excellence. We envision a future where borders don't limit business, only expand opportunities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="section dark">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">WHAT WE STAND FOR</div>
+                <h2 class="section-title">Our Core Values</h2>
+                <p class="section-description">The principles that guide our network and unite our global community.</p>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="value-title">Trust</h3>
+                    <p class="value-description">Building lasting relationships based on transparency, reliability, and mutual respect among all network members.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="value-title">Excellence</h3>
+                    <p class="value-description">Striving for the highest standards in service quality, professionalism, and continuous improvement.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="value-title">Collaboration</h3>
+                    <p class="value-description">Working together across borders to create win-win solutions that benefit members and their clients alike.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="value-title">Innovation</h3>
+                    <p class="value-description">Embracing new technologies and approaches to stay ahead in an ever-evolving logistics landscape.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section class="section dark">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">HISTORY</div>
+                <h2 class="section-title">Our Journey</h2>
+                <p class="section-description">Nearly three decades of connecting freight forwarders worldwide.</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">1997</div>
+                        <p class="timeline-text">Five Star World Agency Network was founded, establishing a global community of independent freight forwarders committed to collaboration and mutual success.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2000s</div>
+                        <p class="timeline-text">Rapid expansion across continents, building a truly global network with members in over 50 countries and establishing our first specialist networks.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2010s</div>
+                        <p class="timeline-text">Launched comprehensive payment protection program and expanded to 19 specialist networks, covering every major logistics sector from AOG to Pharmaceuticals.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020s</div>
+                        <p class="timeline-text">Continued innovation with digital tools, mobile app launch, and expansion to over 100 countries, while hosting our largest annual global summit to date.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2025</div>
+                        <p class="timeline-text">Celebrating 28 years of excellence with our 3rd Super Conference. Stronger than ever with 150+ member companies across the globe, united in our mission to connect the world.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="section light">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">LEADERSHIP</div>
+                <h2 class="section-title">Network Leadership</h2>
+                <p class="section-description">Guided by experienced professionals dedicated to our members' success.</p>
+            </div>
+
+            <div class="leadership-card">
+                <div class="leader-image">
+                    <img src="images/about/president-1.jpg" alt="Bob Messenger">
+                </div>
+                <h3 class="leader-name">Bob Messenger</h3>
+                <p class="leader-title">Network President</p>
+                <p class="leader-bio">With decades of experience in global logistics and a passion for building genuine partnerships, Bob Messenger leads FSFSWAN with vision and dedication. Under his leadership, the network has grown to over 150 member companies across 100+ countries, while maintaining the personal touch and collaborative spirit that defines our community. Bob's commitment to excellence and member success drives everything we do.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Five Star World Agency Network. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,7 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "Read(//mnt/d/Websites/**)"
+      "Bash(done)",
+      "Bash(ls:*)",
+      "Bash(cd:*)",
+      "Bash(cd /mnt/d/Websites/Five\\ Star && grep -l:*)",
+      "Bash(for file in about.html faq.html vacancies.html specialist-groups.html group-home.html)",
+      "Bash(do grep -n \"\\.page-title\\|\\.hero-title\" \"$file\")",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []

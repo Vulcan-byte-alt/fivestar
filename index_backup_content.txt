@@ -1,0 +1,100 @@
+                <h1 class="hero-title reveal">We Have The World Behind Us</h1>
+                <p class="hero-subtitle reveal reveal-delay-1">
+    <section class="section light">
+            <div class="section-header reveal">
+                <div class="section-badge">Our Global Networks</div>
+                <h2 class="section-title">More Than Just A Network</h2>
+                <p class="section-subtitle">Our alliance is proud to house three professional groups offering one of the
+                        <h3 class="card-title">Five Star Freight Systems Network</h3>
+                        <p class="card-description">Our flagship network providing comprehensive global coverage with
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                        <h3 class="card-title">PFI: Professional Forwarders International</h3>
+                        <p class="card-description">A global network of professional freight forwarders dedicated to
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                        <h3 class="card-title">GENSFN: General & Specialist Freight Network</h3>
+                        <p class="card-description">An open network connecting specialists in various freight domains to
+                                <polyline points="12 5 19 12 12 19"></polyline>
+    <section class="section dark">
+            <div class="section-header reveal">
+                <div class="section-badge">Why Join Us</div>
+                <h2 class="section-title" data-text="Benefits of Joining">Benefits of Joining</h2>
+                <p class="section-subtitle">Join one of our networks and experience the advantages of being part of a
+                            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                            <path d="M2 12h20"></path>
+                    <h3 class="benefit-title">Multi-Network Access</h3>
+                    <p class="benefit-description" style="color: white;">Join the FSFSWAN ecosystem and access three primary networks: Five Star, PFI, and GSFN - far beyond just a single group.</p>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    <h3 class="benefit-title">15 Specialist Networks</h3>
+                    <p class="benefit-description" style="color: white;">Access to 15 specialist networks including AOG, Breakbulk, Oil & Gas, Perishable, and Time Sensitive - all covered by your joining fee.</p>
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <h3 class="benefit-title">Payment Protection</h3>
+                    <p class="benefit-description" style="color: white;">Optional Payment Protection Programme (PPP) and FSFSWAN Secure - in-house payment protection at no extra cost.</p>
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    <h3 class="benefit-title">Annual Global Summit</h3>
+                    <p class="benefit-description" style="color: white;">Automatic invitation to our annual Global Summit where all networks convene - multiple networking opportunities in one event.</p>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    <h3 class="benefit-title">Competitive Pricing</h3>
+                    <p class="benefit-description" style="color: white;">Highly competitive annual membership fee designed to deliver exceptional value for your investment.</p>
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <h3 class="benefit-title">Regional Discounts</h3>
+                    <p class="benefit-description" style="color: white;">Reduced annual membership rates available for smaller countries to ensure affordability across all regions.</p>
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    <h3 class="benefit-title">Multi-Office Freedom</h3>
+                    <p class="benefit-description" style="color: white;">No additional charge for registering multiple offices within your home country.</p>
+                            <path d="M8 12h8"></path>
+                    <h3 class="benefit-title">No Hidden Fees</h3>
+                    <p class="benefit-description" style="color: white;">We do not impose any joining or administration fees - making membership accessible and straightforward.</p>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    <h3 class="benefit-title">Sole Agency Rights</h3>
+                    <p class="benefit-description" style="color: white;">Exclusive Sole Agency Status and Country-Specific Rights for your territory.</p>
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    <h3 class="benefit-title">Loyalty Awards</h3>
+                    <p class="benefit-description" style="color: white;">Loyalty Recognition Through Longevity Status Awards for long-serving members.</p>
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <polyline points="17 11 19 13 23 9"></polyline>
+                    <h3 class="benefit-title">Referral Rewards</h3>
+                    <p class="benefit-description" style="color: white;">Referral Discounts for Introducing New Agents to the network.</p>
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                    <h3 class="benefit-title">Debt Collection Support</h3>
+                    <p class="benefit-description" style="color: white;">Official Affiliation with FDSR, a Global Debt Collection Agency, offering members discounted collection rates.</p>
+                            <path d="M3 3h18v18H3zM21 9H3M21 15H3"></path>
+                            <path d="M9 3v18M15 3v18"></path>
+                    <h3 class="benefit-title">Legal Assistance</h3>
+                    <p class="benefit-description" style="color: white;">Assistance in securing local legal representation in countries where you may have challenging outstanding debts.</p>
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    <h3 class="benefit-title">Fast Response</h3>
+                    <p class="benefit-description" style="color: white;">Fast Response from Head Office on all matters to ensure swift assistance and support.</p>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                    <h3 class="benefit-title">Neutral Council</h3>
+                    <p class="benefit-description" style="color: white;">Appointed council of long-serving members to administer disputes in a fair, confidential and neutral manner.</p>
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    <h3 class="benefit-title">Network App Access</h3>
+                    <p class="benefit-description" style="color: white;">Access on admission to our Network App to enable free online chat with all other members.</p>
+                            <polyline points="17 2 12 7 7 2"></polyline>
+                    <h3 class="benefit-title">Meeting Management</h3>
+                    <p class="benefit-description" style="color: white;">1-2-1 Meeting App to create and manage all meetings at our annual conference efficiently.</p>
+    <section class="section light">
+            <div class="section-header reveal">
+                <div class="section-badge">Annual Event</div>
+                <h2 class="section-title">2025 3rd Annual Super AGM</h2>
+                <p class="section-subtitle">Group Photo of our 2025 Global Summit, our 3rd Super Conference and 28th AGM since the inception of our Networks. (May 6th – 9th)</p>
+    <section class="section dark">
+            <div class="section-header reveal">
+                <div class="section-badge">Our Approach</div>
+                <h2 class="section-title" data-text="The Family Philosophy">The Family Philosophy</h2>
+            <div class="section-header reveal">
+                <div class="section-badge">Testimonials</div>
+                <h2 class="section-title" data-text="What Our Members Say">What Our Members Say</h2>
+                        <p class="main-testimonial-text">
+                            <h3>Dave Usher</h3>
+                            <p>Agents Business Development Manager<br>Trans-Border Global Freight Systems, New York USA</p>
+                        <p class="testimonial-text">"Having been a member of FSFSWAN since 2010, I value it as a critical resource for professional growth in international freight forwarding. The association provides essential forward-looking insights and helps me connect with reliable business partners. I am pleased to continue contributing to this excellent community."</p>
+                                <p>CEO, Leader Ocean Freight Forwarder<br>Taiwan</p>
+                        <p class="testimonial-text">"Being part of FSFSWAN is valuable to us because it strengthens our global reach and connects us with reliable, professional partners. It allows us to share expertise, improve service quality, and create new opportunities for collaboration. Through the network, we can offer our customers more efficient, trusted, and competitive logistics solutions."</p>
+                                <p>Executive Director, Mireks Shipping<br>Bulgaria</p>
+                        <p class="testimonial-text">"TAG Cargo has been a member of FSFSWAN since 2015, practically since the beginning of our journey. The network has been essential for the company's international expansion, strengthening our partnerships, connecting us with other freight forwarders, expanding our global presence, and opening doors to new business opportunities."</p>
+                                <p>TAG Cargo<br>Brazil</p>

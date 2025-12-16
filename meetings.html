@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meetings & Events - Five Star World Agency Network</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: 'Satoshi';
+            src: url('fonts/Satoshi-Variable.ttf') format('ttf');
+            font-weight: 100 900;
+            font-style: normal;
+            font-display: block;
+        }
+
+        :root {
+            --primary: #3B82F6;
+            --primary-dark: #1D4ED8;
+            --primary-glow: rgba(59, 130, 246, 0.5);
+            --secondary: #F43F5E;
+            --accent: #06B6D4;
+            --dark: #0F172A;
+            --darker: #030712;
+            --light: #F8FAFC;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-400: #9CA3AF;
+            --gray-500: #6B7280;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-800: #1F2937;
+            --gray-900: #111827;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(3, 7, 18, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 1rem 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 200px;
+            height: 42px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-item {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--gray-300);
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-item:hover {
+            color: white;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 0.5s;
+            border-radius: 2px;
+            opacity: 0;
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
+            opacity: 1;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.75rem;
+            border-radius: 50px;
+            transition: all 0.4s;
+            box-shadow: 0 10px 25px -5px var(--primary-glow);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px -5px var(--primary-glow);
+        }
+
+        /* Hero Section - Full Width */
+        .page-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(3, 7, 18, 0.6), rgba(15, 23, 42, 0.6)), url('images/meetings/hero-meetings.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 80% 70%, rgba(6, 182, 212, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 50% 50%, rgba(244, 63, 94, 0.05) 0%, transparent 70%);
+            animation: pulseGlow 8s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            padding: 0 2rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .page-title {
+            font-size: 4rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.08em;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: #ffffff;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Content Section */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section.light {
+            background-color: var(--light);
+            color: var(--dark);
+        }
+
+        .section.dark {
+            background-color: var(--darker);
+            color: var(--light);
+            position: relative;
+        }
+
+        .section.dark::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(6, 182, 212, 0.05) 0%, transparent 40%);
+            z-index: 0;
+        }
+
+        .section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section.dark .section-label {
+            color: var(--accent);
+        }
+
+        .section.light .section-label {
+            color: var(--primary);
+        }
+
+        .section-title {
+            font-size: 2.75rem;
+            margin-bottom: 2rem;
+            position: relative;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .section.dark .section-title {
+            background: linear-gradient(135deg,
+                    #ffffff 0%,
+                    rgba(59, 130, 246, 0.9) 30%,
+                    rgba(244, 63, 94, 0.8) 60%,
+                    rgba(6, 182, 212, 0.9) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+        }
+
+        .section.dark .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg,
+                    var(--primary) 0%,
+                    var(--secondary) 50%,
+                    var(--accent) 100%);
+            border-radius: 2px;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .section.light .section-title {
+            color: #1e293b;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .section.light .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg,
+                    var(--primary) 0%,
+                    var(--secondary) 50%,
+                    var(--accent) 100%);
+            border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--gray-400);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section.dark .section-description {
+            color: var(--gray-400);
+        }
+
+        .section.light .section-description {
+            color: var(--gray-600);
+        }
+
+        /* Event Highlight Card */
+        .event-highlight {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+        }
+
+        .event-highlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .event-year {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .event-title {
+            font-size: 2rem;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .event-details {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+            justify-content: center;
+        }
+
+        .event-detail-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #1e293b;
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        .event-detail-item i {
+            color: var(--primary);
+            font-size: 1.25rem;
+        }
+
+        .event-description {
+            color: #475569;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            text-align: center;
+        }
+
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefits-grid .benefit-card:nth-child(5) {
+            grid-column: 2 / 3;
+        }
+
+        .benefits-grid .benefit-card:nth-child(6) {
+            grid-column: 3 / 4;
+        }
+
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 1.25rem;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(6, 182, 212, 0.2));
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            transition: all 0.4s;
+        }
+
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .benefit-icon i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .benefit-title {
+            font-size: 1.25rem;
+            color: white;
+            margin-bottom: 0.75rem;
+        }
+
+        .benefit-description {
+            color: var(--gray-400);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            aspect-ratio: 4/3;
+            position: relative;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 20px 40px rgba(31, 38, 135, 0.2);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.1));
+        }
+
+        .gallery-placeholder i {
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.5;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 1.5rem 1rem 1rem;
+            color: white;
+            font-size: 0.95rem;
+        }
+
+        /* Past Meetings Section */
+        .past-meetings {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .past-meetings .past-meeting-card:nth-child(4) {
+            grid-column: 2 / 3;
+        }
+
+        @media (max-width: 1024px) {
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .benefits-grid .benefit-card:nth-child(5),
+            .benefits-grid .benefit-card:nth-child(6) {
+                grid-column: auto;
+            }
+
+            .past-meetings {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .past-meetings .past-meeting-card:nth-child(4) {
+                grid-column: auto;
+            }
+        }
+
+        .past-meeting-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 1.25rem;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .past-meeting-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .past-meeting-year {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .past-meeting-title {
+            font-size: 1.25rem;
+            color: white;
+            margin-bottom: 0.75rem;
+        }
+
+        .past-meeting-location {
+            color: var(--gray-400);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .past-meeting-location i {
+            color: var(--accent);
+        }
+
+        .past-meeting-highlights {
+            color: var(--gray-400);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-box {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(6, 182, 212, 0.15));
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-box h3 {
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .cta-box p {
+            font-size: 1.1rem;
+            color: var(--gray-300);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* AGM Testimonials Section */
+        .host-message-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .host-logo {
+            width: 200px;
+            margin: 0 auto 2rem;
+            display: block;
+        }
+
+        .host-message {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--gray-300);
+            margin-bottom: 1.5rem;
+        }
+
+        .host-author {
+            text-align: right;
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-top: 2rem;
+        }
+
+        /* Video Section */
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .video-placeholder i {
+            font-size: 4rem;
+            color: var(--primary);
+        }
+
+        .video-placeholder p {
+            color: var(--gray-600);
+            font-size: 1.1rem;
+        }
+
+        /* Testimonial Carousel for AGM */
+        .agm-testimonials-wrapper {
+            position: relative;
+            margin-top: 3rem;
+            overflow: hidden;
+            padding: 2rem 0;
+            max-width: 1114px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .agm-testimonials-container {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            gap: 2rem;
+            padding-left: 0;
+            will-change: transform;
+        }
+
+        .agm-testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 1.25rem;
+            padding: 2rem;
+            transition: all 0.3s ease-out;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            min-width: 350px;
+            width: 350px;
+            height: 350px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
+
+        .agm-testimonial-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .agm-testimonial-text {
+            color: var(--gray-300);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            font-size: 0.95rem;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 8;
+            -webkit-box-orient: vertical;
+            flex: 1;
+        }
+
+        .agm-testimonial-author-name {
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .agm-testimonial-author-title {
+            color: var(--gray-400);
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .agm-testimonial-author-company {
+            color: var(--primary);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Carousel Navigation */
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .carousel-btn {
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(59, 130, 246, 0.4);
+            border-color: rgba(59, 130, 246, 0.5);
+            transform: scale(1.1);
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+        }
+
+        .carousel-btn:active {
+            transform: scale(0.95);
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .carousel-dot.active {
+            background: var(--primary);
+            width: 30px;
+            border-radius: 5px;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(3, 7, 18, 0.95);
+            padding: 3rem 0 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            text-align: center;
+            color: var(--gray-500);
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .event-details {
+                gap: 1rem;
+            }
+
+            .benefits-grid, .past-meetings, .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-grid .benefit-card:nth-child(5),
+            .benefits-grid .benefit-card:nth-child(6) {
+                grid-column: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <img src="images/common/logo.png" alt="Five Star Logo" class="logo-img">
+                </a>
+                <nav class="nav">
+                    <a href="group-home.html" class="nav-item">GROUP HOME</a>
+                    <a href="about.html" class="nav-item">ABOUT</a>
+                    <a href="vacancies.html" class="nav-item">VACANCIES</a>
+                    <a href="faq.html" class="nav-item">FAQS</a>
+                    <a href="specialist-groups.html" class="nav-item">SPECIALIST GROUPS</a>
+                    <a href="meetings.html" class="nav-item">MEETINGS</a>
+                    <a href="index.html#contact" class="nav-item">CONTACT</a>
+                </nav>
+                <a href="#" class="cta-button">Join Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="section-badge">Annual Global Summit</div>
+                <h1 class="page-title">Meetings & Events</h1>
+                <p class="page-subtitle">Connect face-to-face with freight forwarding professionals from around the world at our annual global summit. Build relationships, explore opportunities, and strengthen the bonds that make our network thrive.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Event Section -->
+    <section class="section light">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">UPCOMING EVENT</div>
+                <h2 class="section-title">2025 Global Summit</h2>
+                <p class="section-description">Our 3rd Super Conference and 28th Annual General Meeting since inception.</p>
+            </div>
+
+            <div class="event-highlight">
+                <div class="event-year">2025</div>
+                <h3 class="event-title">Global Summit & Annual General Meeting</h3>
+
+                <div class="event-details">
+                    <div class="event-detail-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>May 6th - 9th, 2025</span>
+                    </div>
+                    <div class="event-detail-item">
+                        <i class="fas fa-users"></i>
+                        <span>150+ Member Companies</span>
+                    </div>
+                    <div class="event-detail-item">
+                        <i class="fas fa-globe"></i>
+                        <span>100+ Countries Represented</span>
+                    </div>
+                </div>
+
+                <p class="event-description">Our 2025 Global Summit brought together freight forwarders from across the globe for four days of networking, knowledge sharing, and collaboration. As our 28th Annual General Meeting and 3rd Super Conference, this milestone event showcased the strength and unity of our growing network family.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Attend Section -->
+    <section class="section dark">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">MEMBER BENEFITS</div>
+                <h2 class="section-title">Why Attend Our Meetings</h2>
+                <p class="section-description">Regular AGM attendance is mandatory for maintaining sole agency rights, but the benefits extend far beyond compliance.</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="benefit-title">Build Relationships</h3>
+                    <p class="benefit-description">Meet partners face-to-face, strengthening business relationships that lead to increased collaboration and mutual success.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="benefit-title">Share Knowledge</h3>
+                    <p class="benefit-description">Learn from industry experts, share best practices, and discover innovative solutions to common logistics challenges.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="benefit-title">Explore Opportunities</h3>
+                    <p class="benefit-description">Discover new business opportunities, potential partnerships, and emerging markets within our global network.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="benefit-title">Recognition & Awards</h3>
+                    <p class="benefit-description">Celebrate member achievements and network milestones while earning loyalty awards and referral rewards.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="benefit-title">Network Voice</h3>
+                    <p class="benefit-description">Participate in AGM discussions, contribute to network decisions, and help shape the future direction of FSFSWAN.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3 class="benefit-title">Global Perspective</h3>
+                    <p class="benefit-description">Gain insights into international markets, regulatory changes, and global logistics trends from members worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section class="section light">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">GALLERY</div>
+                <h2 class="section-title">Event Gallery</h2>
+                <p class="section-description">Moments from our 2025 Global Summit and past conferences.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/meetings/agm-gallery-1.jpg" alt="Group Photo - 2025 Global Summit" class="gallery-image">
+                    <div class="gallery-caption">Group Photo - 2025 Global Summit</div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/meetings/agm-gallery-2.jpg" alt="Networking Session" class="gallery-image">
+                    <div class="gallery-caption">Networking Session</div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/meetings/agm-gallery-3.jpg" alt="Industry Presentations" class="gallery-image">
+                    <div class="gallery-caption">Industry Presentations</div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/meetings/agm-gallery-4.jpg" alt="Awards Ceremony" class="gallery-image">
+                    <div class="gallery-caption">Awards Ceremony</div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/meetings/agm-gallery-5.jpg" alt="Gala Dinner" class="gallery-image">
+                    <div class="gallery-caption">Gala Dinner</div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/meetings/agm-gallery-6.jpg" alt="One-on-One Meetings" class="gallery-image">
+                    <div class="gallery-caption">One-on-One Meetings</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AGM Testimonials & Stories Section -->
+    <section class="section dark">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">TESTIMONIALS</div>
+                <h2 class="section-title">Athens 2025 - AGM Testimonials & Stories</h2>
+                <p class="section-description">Heartfelt messages from attendees of our 3rd Super Conference held in Athens, Greece - May 6-9, 2025.</p>
+            </div>
+
+            <!-- Host Message from UNIFREC Greece -->
+            <div class="host-message-card">
+                <!-- SAVE UNIFREC LOGO HERE: /mnt/d/Websites/Five Star/images/meetings/unifrec-logo.png -->
+                <img src="images/meetings/unifrec-logo.png" alt="UNIFREC Greece" class="host-logo">
+
+                <h3 style="text-align: center; color: var(--primary); font-size: 1.75rem; margin-bottom: 2rem;">Message from Hosts - UNIFREC Greece</h3>
+
+                <p class="host-message">Organizing the Five Star 3rd Annual Meeting in Athens filled us with a deep sense of joy from start to finish.</p>
+
+                <p class="host-message">Seeing people from different places and backgrounds come together—sharing ideas, forming new connections, and strengthening existing bonds—was truly uplifting.</p>
+
+                <p class="host-message">Athens provided the perfect backdrop for this energy: a city where conversation flows easily and inspiration feels ever-present. The laughter in the hallways, the meaningful exchanges, the spark of new collaborations—these moments reminded us why we gather each year.</p>
+
+                <p class="host-message">More than an event, it became a celebration of community, friendship, and the power of coming together.</p>
+
+                <p class="host-author">Katerina Areti – CEO – Unifrec – Greece</p>
+            </div>
+
+            <!-- Official Conference Video -->
+            <div style="margin-bottom: 4rem;">
+                <h3 style="text-align: center; color: white; font-size: 2rem; margin-bottom: 2rem;">Official Conference Video</h3>
+                <div class="video-container">
+                    <!-- SAVE CONFERENCE VIDEO HERE: /mnt/d/Websites/Five Star/images/meetings/agm-2025-video.mp4 -->
+                    <!-- Or use <iframe> if embedding from YouTube/Vimeo -->
+                    <video controls width="100%" style="border-radius: 1.5rem;">
+      <source src="images/meetings/agm-2025-video.mp4" type="video/mp4">
+  </video>
+                    <!-- Replace placeholder with: <video controls width="100%"><source src="images/meetings/agm-2025-video.mp4" type="video/mp4"></video> -->
+                </div>
+            </div>
+
+            <!-- Member Testimonials -->
+            <div>
+                <h3 style="text-align: center; color: white; font-size: 2rem; margin-bottom: 1rem;">What Our Members Say</h3>
+                <p style="text-align: center; color: var(--gray-400); margin-bottom: 3rem; font-size: 1.1rem;">Testimonials from attendees of the 2025 Super AGM held in Athens, Greece.</p>
+
+                <div class="agm-testimonials-wrapper">
+                    <div class="agm-testimonials-container" id="agmTestimonialsContainer">
+                    <!-- Testimonial 1: Colin Jeffries -->
+                    <div class="agm-testimonial-card">
+                        <p class="agm-testimonial-text">"After missing out on Sri Lanka last year, it felt amazing to be back for the 3rd Super AGM in Athens! Huge credit to UNIFREC for pulling off such a well-organized and welcoming event. From the moment we arrived, it was clear that this wasn't just another freight network gathering, it felt like a reunion of family and friends. The opportunity to reconnect with fellow professionals, explore new business opportunities, and share insights in such a vibrant setting was invaluable. But what truly set this event apart were the smiles, the laughter, and the genuine camaraderie that filled every room. These are the moments that stay with you long after the event ends. A heartfelt thank you to Bob for allowing Key Cargo to be a part of this incredible network. We're proud to be members of this amazing group. And to UNIFREC and the entire team behind this unforgettable AGM, THANK YOU for your warmth, your hospitality, and your tireless efforts. We're already looking forward to the next event!"</p>
+                        <div class="agm-testimonial-author-name">Colin Jeffries</div>
+                        <div class="agm-testimonial-author-title">Commercial Director</div>
+                        <div class="agm-testimonial-author-company">Key Cargo International Ltd, United Kingdom</div>
+                    </div>
+
+                    <!-- Testimonial 2: Filipe Coelho -->
+                    <div class="agm-testimonial-card">
+                        <p class="agm-testimonial-text">"I would like thank Katerina, Mahos, all the UNIFREC team and you for all your friendliness, the welcome (typical of the Greek people) and their tireless efforts to ensure that nothing was lacking. When things are done with the heart they can never fail. Here's to another hundred years!"</p>
+                        <div class="agm-testimonial-author-name">Filipe Coelho</div>
+                        <div class="agm-testimonial-author-title">Sales Manager</div>
+                        <div class="agm-testimonial-author-company">Justlog Agentes Transitarios Lda, Portugal</div>
+                    </div>
+
+                    <!-- Testimonial 3: Manohar Chandan -->
+                    <div class="agm-testimonial-card">
+                        <p class="agm-testimonial-text">"Great to meet you once again. Had a great time in Athens with you, team Unifrec and members of all 3 networks! Thank you for your selecting Greece for the milestone AGM and Unifrec as the host. I must say Unifrec did deliver a spectacular event, perfect resort, spectacular dinner location, fabulous themes/Greek culture, Taste of Greek cuisine & hospitality. All in all, an incredible AGM packed with productive meetings and happy moments with old & new friends, combined – perfect work hard and party harder event."</p>
+                        <div class="agm-testimonial-author-name">Manohar Chandan</div>
+                        <div class="agm-testimonial-author-title">Senior Manager</div>
+                        <div class="agm-testimonial-author-company">Gulf Agency Company Llc, Oman</div>
+                    </div>
+
+                    <!-- Testimonial 4: Tonet Rayes -->
+                    <div class="agm-testimonial-card">
+                        <p class="agm-testimonial-text">"It was truly a pleasure meeting you in person at the AGM in Athens. I really appreciated the warm welcome and the opportunity to connect with so many great partners. The event was well-organized and productive—thank you for all the effort behind it. Looking forward to building on the connections made and hopefully seeing you again in Bangkok in 2026!"</p>
+                        <div class="agm-testimonial-author-name">Tonet Rayes</div>
+                        <div class="agm-testimonial-author-title">CEO</div>
+                        <div class="agm-testimonial-author-company">ATR International Freight, Philippines</div>
+                    </div>
+
+                    <!-- Testimonial 5: Andeline Wong -->
+                    <div class="agm-testimonial-card">
+                        <p class="agm-testimonial-text">"I was back in Singapore last Tuesday from Europe and indeed the Super AGM in Athens holds fond memories and good times for me! I truly enjoyed every moment during the time in Athens, be it the 121 meetings, welcome cocktail, dinner, city tour and the various coffee breaks and lunches! Everyone is so friendly making me feel so comfortable and I did make a lot of new friends during the AGM. Thank you for the opportunity to attend the AGM! Looking forward to meeting everyone again soon."</p>
+                        <div class="agm-testimonial-author-name">Andeline Wong</div>
+                        <div class="agm-testimonial-author-title">Director</div>
+                        <div class="agm-testimonial-author-company">AnTs Logistic Pte Ltd, Singapore</div>
+                    </div>
+
+                    <!-- Testimonial 6: Kajetan Jaglowski -->
+                    <div class="agm-testimonial-card">
+                        <p class="agm-testimonial-text">"It was an absolutely great event. Bringing me not only business opportunities but also new friendships as you already noticed! Thank you for giving me this opportunity and you can be sure to see me in Bangkok in 2026! I would love to be important part of this group and will do my best to grow together."</p>
+                        <div class="agm-testimonial-author-name">Kajetan Jaglowski</div>
+                        <div class="agm-testimonial-author-title">Managing Director</div>
+                        <div class="agm-testimonial-author-company">Diera Intermodal sp. Z.o.o., Poland</div>
+                    </div>
+
+                    <!-- Testimonial 7: Petra Smitkova -->
+                    <div class="agm-testimonial-card">
+                        <p class="agm-testimonial-text">"It was great meeting all the nice people in Athens, many of them were new to me. I enjoyed the whole event very much, the whole program was awesome, and I certainly do believe there will be some business resulting from the 121 meetings as well. It would be great if we could meet again next year in Bangkok. Thank you once more."</p>
+                        <div class="agm-testimonial-author-name">Petra Smitkova</div>
+                        <div class="agm-testimonial-author-title">Sales and Operations Manager</div>
+                        <div class="agm-testimonial-author-company">LUMI Freight spol. s r.o., Czechia</div>
+                    </div>
+
+                    <!-- Testimonial 8: Donald Velasquez -->
+                    <div class="agm-testimonial-card">
+                        <p class="agm-testimonial-text">"It was truly a pleasure meeting you at the AGM in Athens! I thoroughly enjoyed the event and greatly appreciated the opportunity to connect with so many members during the 1-to-1 meetings. It was a worthwhile investment, and I'm optimistic that the relationships built will lead to meaningful collaborations ahead. Thanks again for your support, warm welcoming and support helping me feel welcomed. It was such a smooth organization of such a memorable gathering. I'll certainly look forward to reconnecting in Bangkok in 2026!"</p>
+                        <div class="agm-testimonial-author-name">Donald Velasquez</div>
+                        <div class="agm-testimonial-author-title">Manager, International Operations</div>
+                        <div class="agm-testimonial-author-company">Radiant Global Logistics (Canada) Inc, Canada</div>
+                    </div>
+
+                    <!-- Testimonial 9: Jonathan Lewis -->
+                    <div class="agm-testimonial-card">
+                        <p class="agm-testimonial-text">"It was good to finally meet you and the network members present. I think I did make some good contacts and acquaintances that will hopefully bring future dividends! Thanks for your support and look forward to building stronger business throughout the networks."</p>
+                        <div class="agm-testimonial-author-name">Jonathan Lewis</div>
+                        <div class="agm-testimonial-author-title">Managing Director</div>
+                        <div class="agm-testimonial-author-company">NAC 2000 Corporation Limited, Zambia</div>
+                    </div>
+
+                    <!-- Testimonial 10: Christina Mörck -->
+                    <div class="agm-testimonial-card">
+                        <p class="agm-testimonial-text">"It was fantastic to see all again and that we finally got to see you. Especially for Admir and Jeffrey as it was their first time. They enjoyed as well! We look forward to see you and all again!"</p>
+                        <div class="agm-testimonial-author-name">Christina Mörck</div>
+                        <div class="agm-testimonial-author-title">Managing Director</div>
+                        <div class="agm-testimonial-author-company">CM Freight & Shipping AB, Sweden</div>
+                    </div>
+
+                    <!-- Testimonial 11: Matt Smith -->
+                    <div class="agm-testimonial-card">
+                        <p class="agm-testimonial-text">"So nice to meet you and the wider AGM family too! I had a great time and felt welcome from the moment I arrived. I enjoyed our chats too, thanks for taking the time in what I know was a jam-packed schedule. And we're already getting through some enquiries as a result of the 121 meetings, so happy with that. Looking forward to Bangkok 2026 already!"</p>
+                        <div class="agm-testimonial-author-name">Matt Smith</div>
+                        <div class="agm-testimonial-author-title">Business Development Manager</div>
+                        <div class="agm-testimonial-author-company">Neba Freight Ltd, United Kingdom</div>
+                    </div>
+                </div>
+
+                <!-- Carousel Navigation -->
+                <div class="carousel-nav">
+                    <button class="carousel-btn" id="prevBtn" aria-label="Previous testimonial">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="carousel-dots" id="carouselDots"></div>
+                    <button class="carousel-btn" id="nextBtn" aria-label="Next testimonial">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Past Meetings Section -->
+    <section class="section dark">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">HISTORY</div>
+                <h2 class="section-title">Past Meetings</h2>
+                <p class="section-description">A look back at our previous annual conferences and super conferences.</p>
+            </div>
+
+            <div class="past-meetings">
+                <div class="past-meeting-card">
+                    <div class="past-meeting-year">2024</div>
+                    <h3 class="past-meeting-title">27th Annual General Meeting</h3>
+                    <p class="past-meeting-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Location TBA
+                    </p>
+                    <p class="past-meeting-highlights">Another successful year of collaboration and growth, bringing together members from across the globe to strengthen partnerships and explore new opportunities.</p>
+                </div>
+
+                <div class="past-meeting-card">
+                    <div class="past-meeting-year">2023</div>
+                    <h3 class="past-meeting-title">2nd Super Conference</h3>
+                    <p class="past-meeting-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Location TBA
+                    </p>
+                    <p class="past-meeting-highlights">Our second super conference featured expanded programming, specialist network meetings, and enhanced networking opportunities for all attendees.</p>
+                </div>
+
+                <div class="past-meeting-card">
+                    <div class="past-meeting-year">2022</div>
+                    <h3 class="past-meeting-title">25th Anniversary Meeting</h3>
+                    <p class="past-meeting-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Location TBA
+                    </p>
+                    <p class="past-meeting-highlights">Celebrating 25 years of excellence and global partnerships, this milestone event brought together generations of network members.</p>
+                </div>
+
+                <div class="past-meeting-card">
+                    <div class="past-meeting-year">2021</div>
+                    <h3 class="past-meeting-title">1st Super Conference</h3>
+                    <p class="past-meeting-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Location TBA
+                    </p>
+                    <p class="past-meeting-highlights">Our inaugural super conference format introduced extended sessions, specialist workshops, and deeper engagement opportunities for members.</p>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <h3>Ready to Join Our Next Meeting?</h3>
+                <p>Become a member today and be part of our next annual global summit. Connect with the world's leading freight forwarders.</p>
+                <a href="index.html#contact" class="cta-button" style="display: inline-block;">Contact Us to Apply</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Five Star World Agency Network. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // AGM Testimonials Carousel
+        const container = document.getElementById('agmTestimonialsContainer');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const dotsContainer = document.getElementById('carouselDots');
+        const cards = document.querySelectorAll('.agm-testimonial-card');
+
+        let currentIndex = 0;
+        const totalCards = cards.length;
+        let cardsPerView = window.innerWidth > 1200 ? 3 : (window.innerWidth > 768 ? 2 : 1);
+        const maxIndex = totalCards - cardsPerView;
+
+        // Create dots
+        function createDots() {
+            dotsContainer.innerHTML = '';
+            const dotsCount = totalCards - cardsPerView + 1;
+            for (let i = 0; i < dotsCount; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('carousel-dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        // Update carousel position
+        function updateCarousel(smooth = true) {
+            const cardWidth = cards[0].offsetWidth;
+            const gap = 32; // 2rem
+            const offset = -(currentIndex * (cardWidth + gap));
+
+            if (!smooth) {
+                container.style.transition = 'none';
+            }
+
+            container.style.transform = `translate3d(${offset}px, 0, 0)`;
+
+            if (!smooth) {
+                // Force reflow
+                container.offsetHeight;
+                container.style.transition = '';
+            }
+
+            // Update dots
+            const dots = document.querySelectorAll('.carousel-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        // Go to specific slide
+        function goToSlide(index) {
+            currentIndex = Math.max(0, Math.min(index, maxIndex));
+            updateCarousel();
+        }
+
+        // Previous slide
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
+        });
+
+        // Next slide
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+                updateCarousel();
+            }
+        });
+
+        // Auto-slide every 5 seconds
+        let autoSlideInterval = setInterval(() => {
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+            updateCarousel(true);
+        }, 5000);
+
+        // Pause auto-slide on hover
+        container.addEventListener('mouseenter', () => {
+            clearInterval(autoSlideInterval);
+        });
+
+        // Resume auto-slide on mouse leave
+        container.addEventListener('mouseleave', () => {
+            autoSlideInterval = setInterval(() => {
+                if (currentIndex < maxIndex) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0;
+                }
+                updateCarousel();
+            }, 5000);
+        });
+
+        // Handle window resize
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                cardsPerView = window.innerWidth > 1200 ? 3 : (window.innerWidth > 768 ? 2 : 1);
+                createDots();
+                currentIndex = 0;
+                updateCarousel(false);
+            }, 250);
+        });
+
+        // Initialize
+        createDots();
+        updateCarousel();
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') prevBtn.click();
+            if (e.key === 'ArrowRight') nextBtn.click();
+        });
+    </script>
+</body>
+</html>

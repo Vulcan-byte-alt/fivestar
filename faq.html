@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions - Five Star World Agency Network</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: 'Satoshi';
+            src: url('fonts/Satoshi-Variable.ttf') format('ttf');
+            font-weight: 100 900;
+            font-style: normal;
+            font-display: block;
+        }
+
+        :root {
+            --primary: #3B82F6;
+            --primary-dark: #1D4ED8;
+            --primary-glow: rgba(59, 130, 246, 0.5);
+            --secondary: #F43F5E;
+            --accent: #06B6D4;
+            --dark: #0F172A;
+            --darker: #030712;
+            --light: #F8FAFC;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-400: #9CA3AF;
+            --gray-500: #6B7280;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-800: #1F2937;
+            --gray-900: #111827;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(3, 7, 18, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 1rem 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 200px;
+            height: 42px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-item {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--gray-300);
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-item:hover {
+            color: white;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 0.5s;
+            border-radius: 2px;
+            opacity: 0;
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
+            opacity: 1;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.75rem;
+            border-radius: 50px;
+            transition: all 0.4s;
+            box-shadow: 0 10px 25px -5px var(--primary-glow);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px -5px var(--primary-glow);
+        }
+
+        /* Hero Section - Full Width */
+        .page-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(3, 7, 18, 0.6), rgba(15, 23, 42, 0.6)), url('images/faq/hero-faq.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 80% 70%, rgba(6, 182, 212, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 50% 50%, rgba(244, 63, 94, 0.05) 0%, transparent 70%);
+            animation: pulseGlow 8s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            padding: 0 2rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .page-title {
+            font-size: 3.75rem;
+            background: linear-gradient(to right, #fff 20%, var(--accent) 80%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.08em;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: #ffffff;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Content Section */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section.light {
+            background-color: var(--light);
+            color: var(--dark);
+        }
+
+        .section.dark {
+            background-color: var(--darker);
+            color: var(--light);
+            position: relative;
+        }
+
+        .section.dark::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(6, 182, 212, 0.05) 0%, transparent 40%);
+            z-index: 0;
+        }
+
+        .section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section.dark .section-label {
+            color: var(--accent);
+        }
+
+        .section.light .section-label {
+            color: var(--primary);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .section.dark .section-title {
+            background: linear-gradient(135deg,
+                    #ffffff 0%,
+                    rgba(59, 130, 246, 0.9) 30%,
+                    rgba(244, 63, 94, 0.8) 60%,
+                    rgba(6, 182, 212, 0.9) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+        }
+
+        .section.dark .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg,
+                    var(--primary) 0%,
+                    var(--secondary) 50%,
+                    var(--accent) 100%);
+            border-radius: 2px;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .section.light .section-title {
+            color: #1e293b;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .section.light .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg,
+                    var(--primary) 0%,
+                    var(--secondary) 50%,
+                    var(--accent) 100%);
+            border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--gray-400);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .section.dark .section-description {
+            color: var(--gray-400);
+        }
+
+        .section.light .section-description {
+            color: var(--gray-600);
+        }
+
+        /* FAQ Container */
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-category {
+            margin-bottom: 3rem;
+        }
+
+        .category-title {
+            font-size: 1.75rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .category-title i {
+            font-size: 1.5rem;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-item:hover {
+            border-color: rgba(59, 130, 246, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.15);
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .faq-question:hover {
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        .faq-question i {
+            color: var(--primary);
+            transition: transform 0.3s;
+            font-size: 1.25rem;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 2rem 1.5rem;
+        }
+
+        .faq-answer p {
+            color: var(--gray-400);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .faq-answer ul {
+            color: var(--gray-400);
+            line-height: 1.8;
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .faq-answer ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* CTA Box */
+        .cta-box {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.1));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-box h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .cta-box p {
+            font-size: 1.1rem;
+            color: var(--gray-400);
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(3, 7, 18, 0.95);
+            padding: 3rem 0 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            text-align: center;
+            color: var(--gray-500);
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .faq-question {
+                padding: 1.25rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .faq-item.active .faq-answer {
+                padding: 0 1.5rem 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <img src="images/common/logo.png" alt="Five Star Logo" class="logo-img">
+                </a>
+                <nav class="nav">
+                    <a href="group-home.html" class="nav-item">GROUP HOME</a>
+                    <a href="about.html" class="nav-item">ABOUT</a>
+                    <a href="vacancies.html" class="nav-item">VACANCIES</a>
+                    <a href="faq.html" class="nav-item">FAQS</a>
+                    <a href="specialist-groups.html" class="nav-item">SPECIALIST GROUPS</a>
+                    <a href="meetings.html" class="nav-item">MEETINGS</a>
+                    <a href="index.html#contact" class="nav-item">CONTACT</a>
+                </nav>
+                <a href="#" class="cta-button">Join Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="section-badge">Got Questions?</div>
+                <h1 class="page-title">Frequently Asked Questions</h1>
+                <p class="page-subtitle">Everything you need to know about joining and being part of the Five Star World Agency Network. Can't find what you're looking for? Contact us directly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section dark">
+        <div class="container">
+            <div class="faq-container">
+                <!-- Membership Category -->
+                <div class="faq-category">
+                    <h2 class="category-title">
+                        <i class="fas fa-user-plus"></i>
+                        Membership
+                    </h2>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What are the requirements to join FSFSWAN?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>To become a member of FSFSWAN, you must meet the following criteria:</p>
+                            <ul>
+                                <li>Demonstrate capability across all standard forwarding modes (air, sea, road) both inbound and outbound</li>
+                                <li>Carry Professional Insurance coverage</li>
+                                <li>Have a minimum of four years in business operations</li>
+                                <li>Have no listing(s) as a delinquent debtor on any recognized industry blacklist websites</li>
+                                <li>Your home country must have a vacancy in the network</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How do sole agency rights work?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Upon successful application, FSFSWAN grants sole agency over your home territory, provided it is available. This means you are the exclusive network representative for your country. Members may also book and pay for any available adjoining territory if desired. However, sole agency rights require adherence to network rules including regular AGM attendance and reciprocal business cooperation with partners.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What if my country is not currently vacant?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>If we cannot offer you an immediate placement, you will be placed on our reserve agents bank waitlist for future vacancies. We maintain this list to ensure qualified applicants are considered when opportunities arise in their territories.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Can I join multiple networks within FSFSWAN?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! FSFSWAN members may apply to join one of the network's internal sister networks. For instance, a PFI agent can seek membership in GSFN or Five Star. This internal flexibility allows you to maximize your network reach and business opportunities.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefits Category -->
+                <div class="faq-category">
+                    <h2 class="category-title">
+                        <i class="fas fa-gift"></i>
+                        Benefits & Services
+                    </h2>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What specialist networks are available?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>All specialist networks are free to join for FSFSWAN members. We currently offer 19 specialist networks including:</p>
+                            <ul>
+                                <li>AOG & Aerospace</li>
+                                <li>Breakbulk</li>
+                                <li>Dangerous Goods</li>
+                                <li>Defence & Military</li>
+                                <li>Pharmaceuticals</li>
+                                <li>Project Cargo</li>
+                                <li>And 13 more specialized sectors</li>
+                            </ul>
+                            <p>Visit our Specialist Groups page for the complete list and detailed information.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How does payment protection work?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>FSFSWAN provides comprehensive payment protection and debt collection support to safeguard transactions between network partners. This protection program helps mitigate financial risks when doing business with other members, giving you peace of mind in your international transactions.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What support services are included in membership?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Members receive access to legal assistance, dispute resolution through our neutral council, debt collection support, a dedicated network mobile app, competitive pricing programs, regional discounts, loyalty awards, and referral rewards. We also provide fast response support and meeting management for annual conferences.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Meetings & Events Category -->
+                <div class="faq-category">
+                    <h2 class="category-title">
+                        <i class="fas fa-calendar-check"></i>
+                        Meetings & Events
+                    </h2>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Are AGM meetings mandatory?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Regular attendance at our annual network meeting is a mandatory requirement for maintaining sole agency rights. The AGM is where members build relationships face-to-face, explore new business opportunities, and strengthen the global network community. Non-compliance with attendance requirements can result in the introduction of a second (dual) agent for your country.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            When and where is the next AGM?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our 2025 Global Summit, which is our 3rd Super Conference and 28th AGM, was held May 6th-9th. Future meeting dates and locations are announced well in advance to allow members to plan attendance. Visit our Meetings page for the latest information on upcoming events.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Financial Category -->
+                <div class="faq-category">
+                    <h2 class="category-title">
+                        <i class="fas fa-dollar-sign"></i>
+                        Fees & Pricing
+                    </h2>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How much does membership cost?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Annual membership fees and detailed pricing information are provided upon application. We believe in transparency and will discuss all costs during the application process. Contact us directly for specific fee structures and payment options tailored to your situation.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Are there any hidden fees?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>No. FSFSWAN operates with complete transparency. There are no hidden fees. All costs including membership dues, specialist network access (which is free), and any optional services are clearly communicated upfront.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Getting Started Category -->
+                <div class="faq-category">
+                    <h2 class="category-title">
+                        <i class="fas fa-rocket"></i>
+                        Getting Started
+                    </h2>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How do I apply for membership?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>First, check our Vacancies page to confirm your country is available. If it is, contact us through our Contact page or email us directly at sales@fivestarfreight.com.au. Our team will guide you through the application process, including documentation requirements and next steps.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How long does the application process take?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>The application review process varies depending on documentation completion and verification requirements. Once we receive your complete application with all required documents, we aim to provide a response promptly. Our team will keep you informed throughout the process.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Box -->
+            <div class="cta-box">
+                <h3>Still have questions?</h3>
+                <p>Our team is here to help. Get in touch with us directly for personalized assistance.</p>
+                <a href="index.html#contact" class="cta-button" style="display: inline-block;">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Five Star World Agency Network. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

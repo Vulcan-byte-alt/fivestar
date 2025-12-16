@@ -1,0 +1,49 @@
+FIVE STAR WORLD AGENCY NETWORK - CONTENT STRUCTURE BACKUP
+==========================================================
+
+SECTIONS FROM ORIGINAL INDEX.HTML:
+
+1. HERO SECTION
+   - Title: "FIVE STAR WORLD AGENCY NETWORK"
+   - Subtitle: About being a global freight forwarding network
+   - Video background
+
+2. NETWORK OVERVIEW
+   - Different Networks section
+   - Network cards with icons
+
+3. BENEFITS OF JOINING
+   - Multiple benefit cards (18 total, show 3 initially)
+   - Show More functionality
+
+4. GLOBAL PRESENCE
+   - Statistics about members, countries, networks
+
+5. MEETINGS SECTION
+   - Athens 2025 AGM
+   - Meeting information
+
+6. WHY CHOOSE US
+   - Key differentiators
+   - Value propositions
+
+7. TESTIMONIALS
+   - Member testimonials
+   - Carousel functionality
+
+8. CONTACT FORM
+   - Contact information
+   - Form fields
+
+9. FOOTER
+   - Links
+   - Copyright
+
+All images are in:
+- images/common/ (logo)
+- images/home/ (homepage images img1-16.png)
+- images/about/
+- images/meetings/
+etc.
+
+Video: There's a hero video background
